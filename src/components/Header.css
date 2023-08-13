@@ -1,0 +1,63 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 50px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: white;
+  padding: 5px;
+  margin: 0 10px;
+}
+
+.search-bar input {
+  border: none;
+  background: white;
+  color: white;
+  border: none;
+  /* width: 150px; */
+  padding: 10px 20px;
+  width: 450px;
+  color: black;
+}
+.search-bar input:focus {
+  outline: none;
+}
+
+.cart-icon {
+  font-size: 30px;
+  margin: 0 5px;
+}
+
+.cart-dropdown {
+  position: relative;
+  cursor: pointer;
+  background-color: green;
+}
+
+.cart-items-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

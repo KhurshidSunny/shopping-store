@@ -1,5 +1,5 @@
 {
-  "fakeProductsData": [
+  "products": [
     {
       "id": 1,
       "productName": "Product A",

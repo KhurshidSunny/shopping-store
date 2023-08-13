@@ -1,15 +1,14 @@
+import { useProduct } from "../context/ProductContext";
 import "./Cart.css";
 import SingleProduct from "./SingleProduct";
 
 function Cart() {
+  const { products } = useProduct();
   return (
     <ul className="card">
-      <SingleProduct />
-      <SingleProduct />
-      <SingleProduct />
-      <SingleProduct />
-      <SingleProduct />
-      <SingleProduct />
+      {products.map((item) => (
+        <SingleProduct item={item} key={item.id} />
+      ))}
     </ul>
   );
 }

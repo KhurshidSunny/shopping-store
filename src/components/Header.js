@@ -1,28 +1,41 @@
-import { Dropdown, Navbar } from "react-bootstrap";
+import { useProduct } from "../context/ProductContext";
+import AddToCart from "./AddToCart";
+import CustomDropdown from "./AddToCart";
 import "./Header.css";
+import { useState } from "react";
 
 function Header() {
+  const [search, setSearch] = useState("");
+
+  const { dispatch, isShowModal } = useProduct();
+
   return (
-    <div className="header">
-      <div className="logo">Shopping Cart</div>
+    <>
+      <div className="header">
+        <div className="logo">Shopping Cart</div>
 
-      <div className="search-bar">
-        <input type="text" placeholder="Search" />
-        {/* <i className="fas fa-search"></i> */}
-        <span className="search-icon">&#128269;</span>
-      </div>
+        <div className="search-bar">
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            type="text"
+            placeholder="Search"
+          />
+          {/* <i className="fas fa-search"></i> */}
+          <span className="search-icon">&#128269;</span>
+        </div>
 
-      <div className="cart-dropdown">
-        <span className="cart-icon">&#128722;</span>
-        <div className="cart-items-count">0</div>
-        <select className="dropdown">
-          <option></option>
-          <option></option>
-          <option></option>
-        </select>
-        {/* Add your dropdown content here */}
+        <div
+          className="cart-dropdown"
+          onClick={() => dispatch({ type: "show-add-to-cart-modal" })}
+        >
+          <span className="cart-icon">&#128722;</span>
+          <div className="cart-items-count">0</div>
+
+          <div className="dropdown-icon"> {`${isShowModal ? "▲" : "▼"}`}</div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

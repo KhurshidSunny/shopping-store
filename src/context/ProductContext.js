@@ -5,6 +5,8 @@ const BASE_URL = "http://localhost:3000";
 
 const initialState = {
   products: [],
+  addToCart: [],
+  isShowModal: false,
 };
 
 function reducer(state, action) {
@@ -14,13 +16,26 @@ function reducer(state, action) {
         ...state,
         products: action.payload,
       };
+    case "add-to-card/loaded":
+      return {
+        ...state,
+        addToCart: action.payload,
+      };
+    case "show-add-to-cart-modal":
+      return {
+        ...state,
+        isShowModal: !state.isShowModal,
+      };
     default:
       throw new Error("unknown Action");
   }
 }
 
 function ProductProvider({ children }) {
-  const [{ products }, dispatch] = useReducer(reducer, initialState);
+  const [{ products, isShowModal }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   useEffect(function () {
     async function getProducts() {
@@ -31,8 +46,10 @@ function ProductProvider({ children }) {
     getProducts();
   }, []);
 
+  // function addToCart(id) {}
+
   return (
-    <ProductContext.Provider value={{ products }}>
+    <ProductContext.Provider value={{ products, dispatch, isShowModal }}>
       {children}
     </ProductContext.Provider>
   );

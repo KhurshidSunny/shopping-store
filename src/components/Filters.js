@@ -1,18 +1,46 @@
+import { useProduct } from "../context/ProductContext";
 import "./Filters.css";
 function Filters() {
+  const { sort, dispatch, byStock } = useProduct();
+  console.log(byStock);
   return (
     <div className="sidebar">
       <div className="sidebar-title">Filter Products</div>
       <div className="filter-option">
-        <input type="radio" id="ascending" name="sort" value="ascending" />
+        <input
+          type="radio"
+          id="ascending"
+          name="sort"
+          value="ascending"
+          onChange={() =>
+            dispatch({
+              type: "sort-by-Acscending",
+              payload: "lowToHigh",
+            })
+          }
+          checked={sort === "lowToHigh" ? true : false}
+        />
         <label htmlFor="ascending">Ascending</label>
       </div>
       <div className="filter-option">
-        <input type="radio" id="descending" name="sort" value="descending" />
+        <input
+          type="radio"
+          id="descending"
+          name="sort"
+          value="descending"
+          onChange={() =>
+            dispatch({ type: "sort-by-Descending", payload: "highToLow" })
+          }
+        />
         <label htmlFor="descending">Descending</label>
       </div>
       <div className="filter-option">
-        <input type="checkbox" id="outOfStock" />
+        <input
+          type="checkbox"
+          id="outOfStock"
+          onChange={() => dispatch({ type: "by-stock", payload: !byStock })}
+          checked={byStock}
+        />
         <label htmlFor="outOfStock">Include out of stock</label>
       </div>
       <div className="filter-option">

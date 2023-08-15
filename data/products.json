@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "productName": "Product A",
+      "productName": "Samsung Official AKG Type-C Handfree Original in-EarPhone",
       "price": 19.99,
       "image": "./images/p1.jpg",
       "inStock": true,
@@ -12,7 +12,7 @@
     },
     {
       "id": 2,
-      "productName": "Product B",
+      "productName": "Xiaomi MI Wireless Bluetooth Portable Pocket Instant Printer",
       "price": 29.99,
       "image": "./images/p2.jpg",
       "inStock": false,
@@ -22,7 +22,7 @@
     },
     {
       "id": 3,
-      "productName": "Product C",
+      "productName": "MI Redmi AirDots 2 TWS Earphone Stereo Bass Bluetooth 5.0 - Black",
       "price": 14.99,
       "image": "./images/p3.jpg",
       "inStock": true,
@@ -32,7 +32,7 @@
     },
     {
       "id": 4,
-      "productName": "Product D",
+      "productName": "Remax RPP-199 30000mAh Hunergy Series 22.5W PD+QC fast charging Power Ban",
       "price": 9.99,
       "image": "./images/p4.jpg",
       "inStock": true,
@@ -42,7 +42,7 @@
     },
     {
       "id": 5,
-      "productName": "Product E",
+      "productName": "Samsung Galaxy Smart Tag",
       "price": 39.99,
       "image": "./images/p5.jpg",
       "inStock": false,
@@ -52,7 +52,7 @@
     },
     {
       "id": 6,
-      "productName": "Product F",
+      "productName": "Apple iPhone 14 Pro Max Liquid Silicon Case by Elago – Burgundy",
       "price": 49.99,
       "image": "./images/p6.jpg",
       "inStock": true,
@@ -62,7 +62,7 @@
     },
     {
       "id": 7,
-      "productName": "Product G",
+      "productName": "Joyroom TL11 Dual-Mic ENC True Wireless",
       "price": 24.99,
       "image": "./images/p7.jpg",
       "inStock": true,
@@ -72,7 +72,7 @@
     },
     {
       "id": 8,
-      "productName": "Product H",
+      "productName": "Amazon Fire TV Stick Lite with Alexa Voice Remote",
       "price": 15.99,
       "image": "./images/p8.jpg",
       "inStock": true,
@@ -82,7 +82,7 @@
     },
     {
       "id": 9,
-      "productName": "Product I",
+      "productName": "Samsung Galaxy S23 Ultra Silicone Case - Green",
       "price": 12.99,
       "image": "./images/p9.jpg",
       "inStock": false,
@@ -92,10 +92,10 @@
     },
     {
       "id": 10,
-      "productName": "Product J",
+      "productName": "Anker PowerCore III 19,200mAh Power Bank Huge Capacity 60W ",
       "price": 59.99,
       "image": "./images/p10.jpg",
-      "inStock": true,
+      "inStock": false,
       "fastDelivery": 7,
       "rating": 5,
       "add": false

@@ -1,16 +1,19 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
+// import cartReducer from "./reducers";
 
 const ProductContext = createContext();
 const BASE_URL = "http://localhost:3000";
 
-const initialState = {
+const cartInitialState = {
   products: [],
   cart: [],
   isShowModal: false,
   currentItem: {},
+  sort: "",
+  byStock: false,
 };
 
-function reducer(state, action) {
+function cartReducer(state, action) {
   switch (action.type) {
     case "products/loaded":
       return {
@@ -41,14 +44,32 @@ function reducer(state, action) {
         ...state,
         isShowModal: !state.isShowModal,
       };
+
+    case "sort-by-Acscending":
+      return {
+        ...state,
+        sort: action.payload,
+      };
+    case "sort-by-Descending":
+      return {
+        ...state,
+        sort: action.payload,
+      };
+    case "by-stock":
+      return {
+        ...state,
+        byStock: action.payload,
+      };
     default:
       throw new Error("unknown Action");
   }
 }
 
 function ProductProvider({ children }) {
-  const [{ products, isShowModal, cart, currentItem, isAdded }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { products, isShowModal, cart, currentItem, isAdded, sort, byStock },
+    dispatch,
+  ] = useReducer(cartReducer, cartInitialState);
 
   useEffect(function () {
     async function getProducts() {
@@ -78,12 +99,15 @@ function ProductProvider({ children }) {
       value={{
         products,
         dispatch,
+
         isShowModal,
         isAdded,
         addToCart,
         cart,
         currentItem,
         removeFromCart,
+        sort,
+        byStock,
       }}
     >
       {children}

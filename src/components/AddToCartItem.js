@@ -1,14 +1,26 @@
+import { useState } from "react";
 import "./AddToCartItem.css";
-function AddToCartItem() {
+import { useProduct } from "../context/ProductContext";
+function AddToCartItem({ item }) {
+  const { removeFromCart } = useProduct();
+  if (item.add === true) return;
+
   return (
-    <li className="product-row">
-      <img src="./images/p1.avif" alt="Product 1" className="product-image" />
-      <div className="product-details">
-        <span className="product-name">Product 1</span>
-        <span className="product-price">$19.99</span>
-      </div>
-      <button className="delete-button">&times;</button>
-    </li>
+    <>
+      <li className="product-row">
+        <img src={item.image} alt="Product 1" className="product-image" />
+        <div className="product-details">
+          <span className="product-name">{item.productName}</span>
+          <span className="product-price">${item.price}</span>
+        </div>
+        <button
+          className="delete-button"
+          onClick={() => removeFromCart(item.id)}
+        >
+          &times;
+        </button>
+      </li>
+    </>
   );
 }
 

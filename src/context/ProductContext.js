@@ -5,8 +5,9 @@ const BASE_URL = "http://localhost:3000";
 
 const initialState = {
   products: [],
-  addToCart: [],
+  cart: [],
   isShowModal: false,
+  currentItem: {},
 };
 
 function reducer(state, action) {
@@ -17,9 +18,23 @@ function reducer(state, action) {
         products: action.payload,
       };
     case "add-to-card/loaded":
+      const updatedProducts = state.products.map((item) =>
+        item.id === action.payload.id ? { ...item, add: true } : item
+      );
+
       return {
         ...state,
-        addToCart: action.payload,
+        cart: [...state.cart, action.payload],
+        products: updatedProducts,
+        currentItem: action.payload,
+      };
+    case "remove-from-cart":
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload.id),
+        products: state.products.map((item) =>
+          item.id === action.payload.id ? { ...item, add: false } : item
+        ),
       };
     case "show-add-to-cart-modal":
       return {
@@ -32,10 +47,8 @@ function reducer(state, action) {
 }
 
 function ProductProvider({ children }) {
-  const [{ products, isShowModal }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ products, isShowModal, cart, currentItem, isAdded }, dispatch] =
+    useReducer(reducer, initialState);
 
   useEffect(function () {
     async function getProducts() {
@@ -46,10 +59,33 @@ function ProductProvider({ children }) {
     getProducts();
   }, []);
 
-  // function addToCart(id) {}
+  function addToCart(id) {
+    const currentItem = products.find((item) => item.id === id);
+
+    dispatch({
+      type: "add-to-card/loaded",
+      payload: currentItem,
+    });
+  }
+
+  function removeFromCart(id) {
+    const newCart = cart.find((item) => item.id === id);
+    dispatch({ type: "remove-from-cart", payload: newCart });
+  }
 
   return (
-    <ProductContext.Provider value={{ products, dispatch, isShowModal }}>
+    <ProductContext.Provider
+      value={{
+        products,
+        dispatch,
+        isShowModal,
+        isAdded,
+        addToCart,
+        cart,
+        currentItem,
+        removeFromCart,
+      }}
+    >
       {children}
     </ProductContext.Provider>
   );

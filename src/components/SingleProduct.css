@@ -72,8 +72,15 @@
   border-top-left-radius: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-
   width: 100%;
-
   cursor: pointer;
+}
+
+.content-container button:hover {
+  background-color: #2980b9;
+}
+
+.content-container button:active {
+  background-color: #3498db;
+  transform: scale(1.005);
 }

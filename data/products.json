@@ -4,91 +4,101 @@
       "id": 1,
       "productName": "Product A",
       "price": 19.99,
-      "image": "url_to_image_1.jpg",
+      "image": "./images/p1.jpg",
       "inStock": true,
       "fastDelivery": 3,
-      "rating": 4
+      "rating": 4,
+      "add": false
     },
     {
       "id": 2,
       "productName": "Product B",
       "price": 29.99,
-      "image": "url_to_image_2.jpg",
+      "image": "./images/p2.jpg",
       "inStock": false,
       "fastDelivery": 5,
-      "rating": 3
+      "rating": 3,
+      "add": false
     },
     {
       "id": 3,
       "productName": "Product C",
       "price": 14.99,
-      "image": "url_to_image_3.jpg",
+      "image": "./images/p3.jpg",
       "inStock": true,
       "fastDelivery": 0,
-      "rating": 5
+      "rating": 5,
+      "add": false
     },
     {
       "id": 4,
       "productName": "Product D",
       "price": 9.99,
-      "image": "url_to_image_4.jpg",
+      "image": "./images/p4.jpg",
       "inStock": true,
       "fastDelivery": 7,
-      "rating": 4
+      "rating": 4,
+      "add": false
     },
     {
       "id": 5,
       "productName": "Product E",
       "price": 39.99,
-      "image": "url_to_image_5.jpg",
+      "image": "./images/p5.jpg",
       "inStock": false,
       "fastDelivery": 6,
-      "rating": 2
+      "rating": 2,
+      "add": false
     },
     {
       "id": 6,
       "productName": "Product F",
       "price": 49.99,
-      "image": "url_to_image_6.jpg",
+      "image": "./images/p6.jpg",
       "inStock": true,
       "fastDelivery": 3,
-      "rating": 4
+      "rating": 4,
+      "add": false
     },
     {
       "id": 7,
       "productName": "Product G",
       "price": 24.99,
-      "image": "url_to_image_7.jpg",
+      "image": "./images/p7.jpg",
       "inStock": true,
       "fastDelivery": 0,
-      "rating": 3
+      "rating": 3,
+      "add": false
     },
     {
       "id": 8,
       "productName": "Product H",
       "price": 15.99,
-      "image": "url_to_image_8.jpg",
+      "image": "./images/p8.jpg",
       "inStock": true,
       "fastDelivery": 5,
-      "rating": 4
+      "rating": 4,
+      "add": false
     },
     {
       "id": 9,
       "productName": "Product I",
       "price": 12.99,
-      "image": "url_to_image_9.jpg",
+      "image": "./images/p9.jpg",
       "inStock": false,
       "fastDelivery": 0,
-      "rating": 1
+      "rating": 1,
+      "add": false
     },
     {
       "id": 10,
       "productName": "Product J",
       "price": 59.99,
-      "image": "url_to_image_10.jpg",
+      "image": "./images/p10.jpg",
       "inStock": true,
       "fastDelivery": 7,
-      "rating": 5
+      "rating": 5,
+      "add": false
     }
   ]
 }

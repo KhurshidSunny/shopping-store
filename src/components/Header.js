@@ -7,7 +7,8 @@ import { useState } from "react";
 function Header() {
   const [search, setSearch] = useState("");
 
-  const { dispatch, isShowModal } = useProduct();
+  const { dispatch, isShowModal, cart } = useProduct();
+  const numOfAddedItem = cart.length;
 
   return (
     <>
@@ -30,7 +31,7 @@ function Header() {
           onClick={() => dispatch({ type: "show-add-to-cart-modal" })}
         >
           <span className="cart-icon">&#128722;</span>
-          <div className="cart-items-count">0</div>
+          <div className="cart-items-count">{numOfAddedItem}</div>
 
           <div className="dropdown-icon"> {`${isShowModal ? "▲" : "▼"}`}</div>
         </div>

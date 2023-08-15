@@ -9,16 +9,6 @@ import Filters from "./components/Filters";
 function App() {
   return (
     <div className="App">
-      {/* <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="cart" element={<Cart />} />
-        </Routes>
-      </BrowserRouter> */}
-      {/* <Header />
-      <Filters />
-      <Cart /> */}
       <Home />
     </div>
   );

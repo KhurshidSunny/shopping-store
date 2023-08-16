@@ -4,6 +4,9 @@ import { useProduct } from "../context/ProductContext";
 
 function SingleProduct({ item }) {
   const { addToCart, removeFromCart } = useProduct();
+  const starContainerStyle = {
+    display: "flex",
+  };
 
   return (
     <li className="singleItem">
@@ -15,7 +18,15 @@ function SingleProduct({ item }) {
         <p className="price">$ {item.price}</p>
         <p>{item.fastDelivery} Days Delivery</p>
 
-        <div className="rating">{item.rating}</div>
+        <div className="rating">
+          {
+            <div style={starContainerStyle}>
+              {Array.from({ length: item.rating }).map((_, i) => (
+                <span className="fas fa-star" key={i}></span>
+              ))}
+            </div>
+          }
+        </div>
 
         {item.add ? (
           <button onClick={() => removeFromCart(item.id)}>

@@ -23,6 +23,8 @@
 }
 
 .rating-label {
+  display: flex;
+  gap: 10px;
   font-size: 16px;
   margin-top: 15px;
 }
@@ -40,5 +42,5 @@
 }
 
 .clear-button:hover {
-  background-color: #d32f2f;
+  background-color: #2980b9;
 }

@@ -3,7 +3,8 @@ import "./Cart.css";
 import SingleProduct from "./SingleProduct";
 
 function Cart() {
-  const { products, sort, byStock } = useProduct();
+  const { products, sort, byStock, byFastDelivery, byRating, search } =
+    useProduct();
 
   function transformProducts() {
     let sortedProducts = products;
@@ -14,6 +15,21 @@ function Cart() {
     }
     if (byStock) {
       sortedProducts = sortedProducts.filter((item) => item.inStock);
+    }
+
+    if (byFastDelivery) {
+      sortedProducts = sortedProducts.filter((item) => item.fastDelivery);
+    }
+    if (byRating) {
+      sortedProducts = sortedProducts.filter(
+        (item) => item.rating === byRating
+      );
+    }
+
+    if (search) {
+      sortedProducts = sortedProducts.filter((item) =>
+        item.productName.toLowerCase().includes(search)
+      );
     }
 
     return sortedProducts;

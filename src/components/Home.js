@@ -6,6 +6,7 @@ import CustomDropdown from "./AddToCart";
 import AddToCart from "./AddToCart";
 import { useState } from "react";
 import { useProduct } from "../context/ProductContext";
+import Rating from "./Rating";
 
 function Home() {
   const { isShowModal } = useProduct();

@@ -11,6 +11,10 @@ const cartInitialState = {
   currentItem: {},
   sort: "",
   byStock: false,
+  byFastDelivery: false,
+  byRating: 0,
+  clearFilter: false,
+  search: "",
 };
 
 function cartReducer(state, action) {
@@ -60,6 +64,27 @@ function cartReducer(state, action) {
         ...state,
         byStock: action.payload,
       };
+    case "filter-by-delivery":
+      return { ...state, byFastDelivery: !action.payload };
+    case "filter-by-rating":
+      return {
+        ...state,
+        byRating: action.payload,
+      };
+    case "clear-filter":
+      return {
+        ...state,
+        clearFilter: true,
+        sort: "",
+        byStock: false,
+        byRating: 0,
+        byFastDelivery: false,
+      };
+    case "search-by-name":
+      return {
+        ...state,
+        search: action.payload,
+      };
     default:
       throw new Error("unknown Action");
   }
@@ -67,7 +92,19 @@ function cartReducer(state, action) {
 
 function ProductProvider({ children }) {
   const [
-    { products, isShowModal, cart, currentItem, isAdded, sort, byStock },
+    {
+      products,
+      isShowModal,
+      cart,
+      currentItem,
+      isAdded,
+      sort,
+      byStock,
+      byFastDelivery,
+      byRating,
+      clearFilter,
+      search,
+    },
     dispatch,
   ] = useReducer(cartReducer, cartInitialState);
 
@@ -108,6 +145,10 @@ function ProductProvider({ children }) {
         removeFromCart,
         sort,
         byStock,
+        byFastDelivery,
+        byRating,
+        clearFilter,
+        search,
       }}
     >
       {children}

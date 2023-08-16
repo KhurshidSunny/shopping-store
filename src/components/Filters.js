@@ -1,8 +1,9 @@
 import { useProduct } from "../context/ProductContext";
 import "./Filters.css";
+import Rating from "./Rating";
 function Filters() {
-  const { sort, dispatch, byStock } = useProduct();
-  console.log(byStock);
+  const { sort, dispatch, byStock, byFastDelivery, byRating } = useProduct();
+
   return (
     <div className="sidebar">
       <div className="sidebar-title">Filter Products</div>
@@ -31,6 +32,7 @@ function Filters() {
           onChange={() =>
             dispatch({ type: "sort-by-Descending", payload: "highToLow" })
           }
+          checked={sort === "highToLow" ? true : false}
         />
         <label htmlFor="descending">Descending</label>
       </div>
@@ -44,12 +46,36 @@ function Filters() {
         <label htmlFor="outOfStock">Include out of stock</label>
       </div>
       <div className="filter-option">
-        <input type="checkbox" id="fastDelivery" />
+        <input
+          type="checkbox"
+          id="fastDelivery"
+          onChange={() =>
+            dispatch({ type: "filter-by-delivery", payload: byFastDelivery })
+          }
+          checked={byFastDelivery}
+        />
         <label htmlFor="fastDelivery">Fast Delivery only</label>
       </div>
-      <div className="rating-label">Rating:</div>
-      {/* Add your rating input/slider here */}
-      <button className="clear-button">Clear filter</button>
+      <span className="rating-label">
+        Rating:{" "}
+        <Rating
+          rating={byRating}
+          onHandleClick={(i) =>
+            dispatch({
+              type: "filter-by-rating",
+              payload: i + 1,
+            })
+          }
+          style={{ cursor: "pointer" }}
+        />
+      </span>
+
+      <button
+        className="clear-button"
+        onClick={() => dispatch({ type: "clear-filter" })}
+      >
+        Clear filter
+      </button>
     </div>
   );
 }

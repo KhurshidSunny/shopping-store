@@ -9,7 +9,9 @@ import Filters from "./components/Filters";
 function App() {
   return (
     <div className="App">
-      <Home />
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
     </div>
   );
 }
